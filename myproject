@@ -1,0 +1,16 @@
+# Example: Selenium Script for Patient Record Creation
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+driver.get("https://chatgpt.com/c/676299c0-d388-8003-b290-e5ffa899f483")
+
+# Fill form with valid data
+driver.find_element(By.ID, "name").send_keys("John Doe")
+driver.find_element(By.ID, "email").send_keys("john.doe@example.com")
+driver.find_element(By.ID, "submit").click()
+
+# Assert success message
+assert "Record created successfully" in driver.page_source
+
+driver.quit()
